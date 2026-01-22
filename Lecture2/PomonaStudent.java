@@ -8,6 +8,12 @@ public class PomonaStudent {
     private boolean graduated;
     private static int studentCounter;
 
+    public PomonaStudent(String name, String email, int id){
+        this.name = name;
+        this.email = email;
+        this.id = id;
+        studentCounter++;
+    }
 
     int getYearEntered() {
         return yearEntered;
@@ -20,13 +26,6 @@ public class PomonaStudent {
     public static void graduateAllStudents(){
         studentCounter = 0;
      }
-
-    public PomonaStudent(String name, String email, int id){
-        this.name = name;
-        this.email = email;
-        this.id = id;
-        studentCounter++;
-    }
 
     public static PomonaStudent olderStudent(PomonaStudent p1, PomonaStudent p2) {
         if (p1.yearEntered < p2.yearEntered) { 
