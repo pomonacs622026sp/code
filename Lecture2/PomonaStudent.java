@@ -28,7 +28,7 @@ public class PomonaStudent {
      }
 
     public static PomonaStudent olderStudent(PomonaStudent p1, PomonaStudent p2) {
-        if (p1.yearEntered < p2.yearEntered) { 
+        if (p1.getYearEntered() < p2.getYearEntered()) { 
             //if they entered an earlier year, they are an older (in class ranking) student
             return p1;
         }

@@ -23,7 +23,9 @@ public class Cat {
     public void setDaysinRescue(int days){
         this.daysInRescue = days;
     }
-
+    //could also not be static, but conceptually makes more sense as static
+    //since the oldest cat in rescue is not tied to a specific cat
+    //but rather all the cats in the rescue
     public static Cat oldestCatInRescue(Cat[] cats) {
         Cat oldest = cats[0];
         for (int i = 0; i < cats.length; i++) {
@@ -31,6 +33,13 @@ public class Cat {
                 oldest = cats[i];
             }
         }
+        /* OR, for-each loop
+        for (Cat cat : cats) {
+         if (cat.getDaysInRescue() > oldest.getDaysInRescue()) {
+                oldest = cat;
+            }
+        } 
+        */
         return oldest;
     }
 
