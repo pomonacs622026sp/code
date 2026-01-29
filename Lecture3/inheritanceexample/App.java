@@ -13,8 +13,8 @@ public class App {
         FirstYearPomonaStudent[] firstYears = {student1, student2};
 
         for (FirstYearPomonaStudent firstYear : firstYears) {
-            System.out.println(firstYear);
-            System.out.println("---");
+            // System.out.println(firstYear);
+            // System.out.println("---");
         }
 
         //can use more general parent class
@@ -28,6 +28,7 @@ public class App {
             System.out.println(student);
             System.out.println("---");
         }
+
 
         //checking graduating students
         System.out.println(Student.getStudentCounter()); //should be 5

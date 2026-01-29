@@ -24,4 +24,16 @@ class FirstYearPomonaStudent extends PomonaStudent {
         return super.toString() + "First-Year Student Attending ID1: " + id1;
     }
 
+    @Override
+    protected int getMaxCredits(){
+        return 4;
+    }
+    protected void parentTest() {
+        super.superTest();
+    }
+    public static void main(String[] args) {
+        FirstYearPomonaStudent student1 = new FirstYearPomonaStudent("daniel", "daniel@pomona.edu", 1, "War and Peace");
+        System.out.println("testing inheritance");
+        student1.superTest();
+    }
 }

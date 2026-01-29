@@ -19,11 +19,6 @@ class FourthYearPomonaStudent extends PomonaStudent {
         this.thesisTitle = thesisTitle;
     }
 
-    @Override
-    protected int getMaxCredits(){
-        return 6;
-    }
-
     public String toString(){
         return super.toString() + "Fourth-Year Student Writing Thesis on: " + thesisTitle;
     }

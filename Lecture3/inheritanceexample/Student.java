@@ -68,6 +68,9 @@ class Student {
         yearEntered = year;
     }
 
+    protected void test(){
+        System.out.println("test in student");
+    }
 
     protected int getMaxCredits(){
         return 4;

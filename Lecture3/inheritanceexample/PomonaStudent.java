@@ -3,7 +3,6 @@ package inheritanceexample;
 public class PomonaStudent extends Student {
 
     private boolean languageReqCompleted;
-
     private static int pomonaStudentCounter;
 
     protected PomonaStudent(String name, String email, int id){
@@ -22,7 +21,16 @@ public class PomonaStudent extends Student {
     public String toString(){
         return "Pomona " + super.toString();
     }
-
+    @Override
+    protected void test(){
+        System.out.println("test in pomona student");
+    }
+    protected void superTest() {
+        super.test();
+    }
+    protected int getMaxCredits(){
+        return 6;
+    }
     protected static void graduateAllStudents(){
         Student.setStudentCounter(Student.getStudentCounter() - pomonaStudentCounter);
         pomonaStudentCounter = 0;

@@ -10,7 +10,6 @@ public class PomonaStudent {
     private boolean graduated;
     private static int studentCounter;
 
-
     int getYearEntered() { //default access 
         return yearEntered;
     }
@@ -20,7 +19,7 @@ public class PomonaStudent {
     }
 
     //private - scripps should not be able to graduate pomona students
-    private static void graduateAllStudents(){
+    public static void graduateAllStudents(){
         studentCounter = 0;
      }
 
