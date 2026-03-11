@@ -51,23 +51,46 @@ public class BinaryTree<T extends Comparable<T>> {
      * @param key the value to search for in the tree
      * @return true if the key exists in the tree; false otherwise
      */
-    public boolean contains(T key) {
-        return containsRecursive(root, key);
+    public boolean searchRecursive(T key) {
+        return searchRecursive(root, key);
     }
 
-    private boolean containsRecursive(Node<T> node, T key) {
+    private boolean searchRecursive(Node<T> node, T key) {
         if (node == null) {
             return false;
         }
 
         int cmp = key.compareTo(node.key);
         if (cmp < 0) {
-            return containsRecursive(node.left, key);
+            return searchRecursive(node.left, key);
         } else if (cmp > 0) {
-            return containsRecursive(node.right, key);
+            return searchRecursive(node.right, key);
         } else {
             return true;
         }
+    }
+
+    /**
+     * Searches for a key in the binary search tree using an iterative approach.
+     *
+     * @param key the key to search for in the tree
+     * @return true if the key is found in the tree, false otherwise
+     * @throws NullPointerException if the key is null
+     */
+    public boolean searchIterative(T key) {
+        Node<T> current = root;
+
+        while (current != null) {
+            int cmp = key.compareTo(current.key);
+            if (cmp == 0) {
+                return true;
+            } else if (cmp < 0) {
+                current = current.left;
+            } else {
+                current = current.right;
+            }
+        }
+        return false;
     }
 
     /**
@@ -162,7 +185,7 @@ public class BinaryTree<T extends Comparable<T>> {
         System.out.print("Postorder: ");
         tree.postorderTraversal();
 
-        System.out.println("Contains 4? " + tree.contains(4));
-        System.out.println("Contains 8? " + tree.contains(8));
+        System.out.println("Contains 4? " + tree.searchRecursive(4));
+        System.out.println("Contains 8? " + tree.searchRecursive(8));
     }
 }
