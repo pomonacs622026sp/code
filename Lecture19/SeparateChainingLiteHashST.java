@@ -2,9 +2,9 @@ public class SeparateChainingLiteHashST<Key, Value> {
     private static final int INIT_CAPACITY = 128;
     private static final int LOAD_FACTOR_THRESHOLD = 4;
 
-    private int m;                 // number of buckets
-    private int n;                 // number of key-value pairs
-    private Node[] table;        // array of linked-list chains - the table itself
+    private int m; // number of buckets
+    private int n; // number of key-value pairs
+    private Node[] table; // array of linked-list chains - the table itself
 
     private class Node {
         Key key;
@@ -43,7 +43,8 @@ public class SeparateChainingLiteHashST<Key, Value> {
     }
 
     public void put(Key key, Value val) {
-        if (key == null) throw new IllegalArgumentException("Key is null");
+        if (key == null)
+            throw new IllegalArgumentException("Key is null");
 
         int i = hash(key);
         for (Node x = table[i]; x != null; x = x.next) {
@@ -84,15 +85,15 @@ public class SeparateChainingLiteHashST<Key, Value> {
         map.put("apple", 5);
         map.put("banana", 3);
         map.put("orange", 7);
-        System.out.println("apple: " + map.get("apple"));     
-        System.out.println("banana: " + map.get("banana"));   
-        System.out.println("grape: " + map.get("grape"));     // null
+        System.out.println("apple: " + map.get("apple"));
+        System.out.println("banana: " + map.get("banana"));
+        System.out.println("grape: " + map.get("grape")); // null
 
         map.put("banana", 9);
         System.out.println("banana (updated): " + map.get("banana")); // 9
 
         System.out.println("Contains 'orange'? " + map.contains("orange")); // true
-        System.out.println("Contains 'peach'? " + map.contains("peach"));   // false
+        System.out.println("Contains 'peach'? " + map.contains("peach")); // false
 
         System.out.println("Size: " + map.size()); // 3
     }
