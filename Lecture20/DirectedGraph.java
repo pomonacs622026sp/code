@@ -7,14 +7,14 @@ import java.util.Queue;
  * Directed graph with BFS and DFS traversal methods.
  */
 public class DirectedGraph {
-    private final int V;
-    private int E;
+    private final int numVertices;
+    private int numEdges;
     private final List<Integer>[] adj;
 
     @SuppressWarnings("unchecked")
     public DirectedGraph(int V) {
-        this.V = V;
-        this.E = 0;
+        this.numVertices = V;
+        this.numEdges = 0;
         adj = (List<Integer>[]) new List[V];
         for (int v = 0; v < V; v++) {
             adj[v] = new ArrayList<>();
@@ -22,7 +22,7 @@ public class DirectedGraph {
     }
 
     public void addEdge(int v, int w) {
-        E++;
+        numEdges++;
         adj[v].add(w); // Directed edge from v to w
     }
 
@@ -30,18 +30,18 @@ public class DirectedGraph {
         return adj[v];
     }
 
-    public int V() {
-        return V;
+    public int numVertices() {
+        return numVertices;
     }
 
-    public int E() {
-        return E;
+    public int numEdges() {
+        return numEdges;
     }
 
     public void bfs(int s) {
-        boolean[] marked = new boolean[V];
-        int[] edgeTo = new int[V];
-        int[] distTo = new int[V];
+        boolean[] marked = new boolean[numVertices];
+        int[] edgeTo = new int[numVertices];
+        int[] distTo = new int[numVertices];
 
         Queue<Integer> queue = new LinkedList<>();
         marked[s] = true;
@@ -66,11 +66,11 @@ public class DirectedGraph {
     }
 
     public void dfs(int s) {
-        boolean[] marked = new boolean[V];
-        int[] edgeTo = new int[V];
-        int[] distTo = new int[V];
+        boolean[] marked = new boolean[numVertices];
+        int[] edgeTo = new int[numVertices];
+        int[] distTo = new int[numVertices];
 
-        for (int i = 0; i < V; i++) {
+        for (int i = 0; i < numVertices; i++) {
             distTo[i] = -1;
         }
 
@@ -79,7 +79,7 @@ public class DirectedGraph {
         dfsHelper(s, marked, edgeTo, distTo);
 
         System.out.println("DFS starting from vertex " + s + ":");
-        for (int v = 0; v < V; v++) {
+        for (int v = 0; v < numVertices; v++) {
             if (marked[v]) {
                 System.out.println("Visited " + v + " (dist " + distTo[v] + ")");
             }
@@ -101,8 +101,8 @@ public class DirectedGraph {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(V).append(" vertices, ").append(E).append(" edges\n");
-        for (int v = 0; v < V; v++) {
+        sb.append(numVertices).append(" vertices, ").append(numEdges).append(" edges\n");
+        for (int v = 0; v < numVertices; v++) {
             sb.append(v).append(" -> ");
             for (int w : adj[v]) {
                 sb.append(w).append(" ");
